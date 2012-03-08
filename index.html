@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+    
+    </style>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDhmjHy_f5neLnJ3RFDTGBzULFDI0bIIAo&sensor=false">
+    </script>
+  
+</script>
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: coords,
+            mapTypeControl: true,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(
+                document.getElementById("mapContainer"), mapOptions
+                );
+            var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "Your current location!"
+            });
+ 
+        });
+    }else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+</script>
+  </head>
+  <body onload="initialize()">
+  
+  		<div class="l-contentwrap">
+        <div class="l-content">
+        	<div class="poster">
+            	<h1>Warning! Brat is on the Loose</h1>
+                <h2>Name: Torabora</h2>
+                <h2>Breed: Fluffy Long haired Norweigan Forrest Cat</h2>
+                <h2>Colour: White as Snow</h2>
+                <h2>ID: Ear Tattoo</h2>
+                
+                
+                 <a href="http://pdfcrowd.com/url_to_pdf/">Convert this page to a PDF</a>  
+            </div>
+        </div>
+        	<div class="map">
+    			<div id="mapContainer" style="width:100%; height:500px"></div>
+            </div>
+   	    </div>
+  </body>
+</html>
+
+
+
